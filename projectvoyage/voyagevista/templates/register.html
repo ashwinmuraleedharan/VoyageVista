@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Details</title>
+    <style>
+        body {
+            background-color: #E2E8F0;
+        }
+        form {
+            border: 2px solid #2D3748;
+            border-radius: 5px;
+            width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2D3748;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            border: 1px solid #2D3748;
+            border-radius: 5px;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #2D3748;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #4A5568;
+        }
+    </style>
+</head>
+<body>
+<h1>Register Below</h1>
+<form action="register" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="enter username"><br>
+    <input type="text" name="first_name" placeholder="enter first name"><br>
+    <input type="text" name="last_name" placeholder="enter last name"><br>
+    <input type="email" name="email" placeholder="enter email id"><br>
+    <input type="password" name="password" placeholder="enter password"><br>
+    <input type="password" name="confirm_password" placeholder="confirm your password"><br>
+    <input type="submit">
+</form>
+{% for mess in messages %}
+{{mess}}
+{% endfor %}
+</body>
+</html>
